@@ -71,7 +71,7 @@ if [ $2 != 2 ]; then
 	   echo "${count}件"
 
 	   if [ $count = '0' ]; then
-	      elementNotUsedCountArray+=($searchFileNameForGrep)
+	      elementNotUsedCountArray+=($elementFileName)
 	   fi
 	done
 
@@ -124,7 +124,7 @@ if [ $2 != 1 ]; then
 	   count=`grep -rl ${imgFileNameForGrep} | wc -l`   #views以下以外なら正確？
 	   echo "${count}件"
 	  if [ $count = '0' ]; then
-	    imgNotUsedCountArray+=($imgFileNameForGrep)
+	    imgNotUsedCountArray+=($imgFileNamePath)
 	  fi
 	done
 
