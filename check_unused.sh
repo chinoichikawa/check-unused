@@ -83,7 +83,7 @@ if [ $2 != 2 ]; then
 	   for file in "${elementNotUsedCountArray[@]}"
 	   do
 		   echo $file
-	      echo ${file} >> check_element_count.txt
+	       echo ${file} >> check_element_count.txt
 	   done
 	fi
 
@@ -135,6 +135,7 @@ if [ $2 != 1 ]; then
 		touch check_image_count.txt
 		for file in "${imgNotUsedCountArray[@]}"
 		do
+			echo $file
 			echo ${file} >> check_image_count.txt
 		done
 	fi
