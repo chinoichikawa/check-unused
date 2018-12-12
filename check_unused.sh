@@ -27,6 +27,17 @@ fi
 
 cd $dir
 
+#最後に出力するファイル名用の変数を作成
+#app_front → front
+#front → front
+if [ `echo $dir | grep \/ ` ]; then
+	|   fileNameForTarget=`echo "$dir" | sed -e "s/^.*\/\(.*\)/\1/"`
+else
+	|   fileNameForTarget=$dir
+fi
+echo $fileNameForTarget
+
+
 #############################################エレメントの検索#############################################
 if [ $2 != 2 ]; then
 	#エレメントのディレクトリを検索
@@ -79,11 +90,11 @@ if [ $2 != 2 ]; then
 
 	#配列に一つでも入っていれば、ファイルに出力する
 	if [ ${#elementNotUsedCountArray[@]} -gt 0 ]; then
-	   touch check_element_count.txt
+	   touch unused_element.txt
 	   for file in "${elementNotUsedCountArray[@]}"
 	   do
 		   echo $file
-	       echo ${file} >> check_element_count.txt
+	       echo ${file} >> unused_element.txt
 	   done
 	fi
 
@@ -132,11 +143,11 @@ if [ $2 != 1 ]; then
 
 	#配列に一つでも入っていれば、ファイルに出力する
 	if [ ${#imgNotUsedCountArray[@]} -gt 0 ]; then
-		touch check_image_count.txt
+		touch unused_img.txt
 		for file in "${imgNotUsedCountArray[@]}"
 		do
 			echo $file
-			echo ${file} >> check_image_count.txt
+			echo ${file} >> unused_img.txt
 		done
 	fi
 	echo "--------------------------------------${#imgNotUsedCountArray[@]}件ヒットしました--------------------------------------"
