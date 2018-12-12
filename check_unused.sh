@@ -31,9 +31,9 @@ cd $dir
 #app_front → front
 #front → front
 if [ `echo $dir | grep \/ ` ]; then
-	|   fileNameForTarget=`echo "$dir" | sed -e "s/^.*\/\(.*\)/\1/"`
+	fileNameForTarget=`echo "$dir" | sed -e "s/^.*\/\(.*\)/\1/"`
 else
-	|   fileNameForTarget=$dir
+	fileNameForTarget=$dir
 fi
 echo $fileNameForTarget
 
